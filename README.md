@@ -1,5 +1,7 @@
 # Angular Reddit Clone
 
+[Live](http://mherman.org/angular-reddit-clone/)
+
 It's time to put everything you've learned so far about Angular to use. You're going to make a reddit clone with posts, comments, searching, sorting, animations, and more! Watch the following video for an in-depth walk-through of the features.
 
 Note:
