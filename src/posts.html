@@ -19,6 +19,20 @@
               <small>By&nbsp;<em>{{post.author}}</em></small>
               <br><br>
               <p>{{post.desc}}</p>
+              <p>
+                <span class="glyphicon glyphicon-comment"></span>
+                <span class="link" ng-click="show=true">
+                  <span>{{post.comments.length}}</span>
+                  <ng-pluralize count="post.comments.length" when="{
+                    '0': 'comments',
+                    '1': 'comment',
+                    'other': 'comments'}">
+                  </ng-pluralize>
+                </span>
+                <span>&nbsp;&verbar;&nbsp;</span>
+                <span class="glyphicon glyphicon-pencil"></span>
+                <span>Add Comment</span>
+              </p>
             </div>
           </div>
           <div class="col-sm-3">
@@ -27,6 +41,23 @@
               &nbsp;{{post.date}}
             </small></h4>
           </div>
+        </div>
+      </div>
+      <div ng-show="show" class="panel-body media post">
+        <div class="row">
+          <div class="col-sm-9">
+            <p ng-show="post.comments.length===0">No Comments!</p>
+            <p ng-show="post.comments.length>0">All Comments:</p>
+          </div>
+          <div class="col-sm-3">
+            <button type="submit" class="btn btn-xs btn-success" ng-click="show=false">Hide</button>
+          </div>
+        </div>
+        <div class="row" ng-show="post.comments.length>0">
+          <div class="col-sm-9">
+          <ul ng-repeat="comment in post.comments">
+            <li><p><em>{{comment.author}}</em>:&nbsp;{{comment.text}}</p></li>
+          </ul>
         </div>
       </div>
     </div>

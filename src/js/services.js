@@ -11,7 +11,13 @@ app.factory('postFactory', function() {
       desc: 'Bicycle rights meggings umami intelligentsia wolf hoodie. Before they sold out leggings single-origin coffee, kale chips chicharrones brooklyn tote bag next level photo booth kinfolk. Raw denim irony humblebrag, schlitz brunch williamsburg pitchfork.',
       date: moment().day(-1),
       votes: 0,
-      color: 'black'
+      color: 'black',
+      comments: [
+        {
+          author: 'Michael',
+          text: 'Such a good post!'
+        }
+      ]
     },
     {
       id: 2,
@@ -21,7 +27,8 @@ app.factory('postFactory', function() {
       desc: 'Franzen bicycle rights chartreuse, tumblr put a bird on it viral pinterest direct trade neutra cornhole freegan post-ironic everyday carry portland lo-fi. Umami neutra ugh, listicle PBR&B microdosing hashtag kinfolk drinking vinegar tofu authentic cornhole retro ethical small batch. ',
       date: moment(new Date()),
       votes: 0,
-      color: 'black'
+      color: 'black',
+      comments: []
     },
     {
       id: 3,
@@ -31,7 +38,8 @@ app.factory('postFactory', function() {
       desc: 'Sustainable single-origin coffee truffaut iPhone selvage. 90\'s chia actually ennui, vegan salvia bespoke you probably haven\'t heard of them readymade selfies williamsburg ramps VHS synth.',
       date: moment(new Date()).day(1),
       votes: 0,
-      color: 'black'
+      color: 'black',
+      comments: []
     }
   ];
 
@@ -64,6 +72,7 @@ app.factory('postFactory', function() {
     postObj.id = currentID+1;
     postObj.date = new Date();
     postObj.votes = 0;
+    postObj.comments = [];
     allPosts.push(postObj);
   };
 
