@@ -9,7 +9,14 @@ app.factory('postFactory', function() {
       author: 'ClintonFan4Lyfe',
       img: 'http://i.imgur.com/kETTPXr.jpg',
       desc: 'Bicycle rights meggings umami intelligentsia wolf hoodie. Before they sold out leggings single-origin coffee, kale chips chicharrones brooklyn tote bag next level photo booth kinfolk. Raw denim irony humblebrag, schlitz brunch williamsburg pitchfork.',
-      date: moment().day(-1),
+      date: moment().day(-1).calendar(null, {
+        sameDay: '[Today]',
+        nextDay: '[Tomorrow]',
+        nextWeek: 'dddd',
+        lastDay: '[Yesterday]',
+        lastWeek: '[Last] dddd',
+        sameElse: 'dddd, MMMM Do YYYY'
+      }),
       votes: 0,
       color: 'black',
       comments: [
@@ -25,7 +32,14 @@ app.factory('postFactory', function() {
       author: 'Carl',
       img: 'http://i.imgur.com/mpEbtMb.jpg',
       desc: 'Franzen bicycle rights chartreuse, tumblr put a bird on it viral pinterest direct trade neutra cornhole freegan post-ironic everyday carry portland lo-fi. Umami neutra ugh, listicle PBR&B microdosing hashtag kinfolk drinking vinegar tofu authentic cornhole retro ethical small batch. ',
-      date: moment(new Date()),
+      date: moment(new Date()).calendar(null, {
+        sameDay: '[Today]',
+        nextDay: '[Tomorrow]',
+        nextWeek: 'dddd',
+        lastDay: '[Yesterday]',
+        lastWeek: '[Last] dddd',
+        sameElse: 'dddd, MMMM Do YYYY'
+      }),
       votes: 0,
       color: 'black',
       comments: []
@@ -36,7 +50,14 @@ app.factory('postFactory', function() {
       author: 'HashtagMemesCatsBacon',
       img: 'http://i.imgur.com/KRxgsMQ.jpg',
       desc: 'Sustainable single-origin coffee truffaut iPhone selvage. 90\'s chia actually ennui, vegan salvia bespoke you probably haven\'t heard of them readymade selfies williamsburg ramps VHS synth.',
-      date: moment(new Date()).day(1),
+      date: moment(new Date()).day(1).calendar(null, {
+        sameDay: '[Today]',
+        nextDay: '[Tomorrow]',
+        nextWeek: 'dddd',
+        lastDay: '[Yesterday]',
+        lastWeek: '[Last] dddd',
+        sameElse: 'dddd, MMMM Do YYYY'
+      }),
       votes: 0,
       color: 'black',
       comments: []
@@ -44,17 +65,7 @@ app.factory('postFactory', function() {
   ];
 
   posts.getAllPosts = function() {
-    return allPosts.map(function(post){
-      post.date = moment(post.date).calendar(null, {
-        sameDay: '[Today]',
-        nextDay: '[Tomorrow]',
-        nextWeek: 'dddd',
-        lastDay: '[Yesterday]',
-        lastWeek: '[Last] dddd',
-        sameElse: 'dddd, MMMM Do YYYY'
-      });
-      return post;
-    });
+    return allPosts;
   };
 
   posts.getPost = function(postID) {
@@ -70,7 +81,14 @@ app.factory('postFactory', function() {
   posts.addPost = function(postObj) {
     var currentID = allPosts[allPosts.length-1].id;
     postObj.id = currentID+1;
-    postObj.date = new Date();
+    postObj.date = moment(new Date()).calendar(null, {
+        sameDay: '[Today]',
+        nextDay: '[Tomorrow]',
+        nextWeek: 'dddd',
+        lastDay: '[Yesterday]',
+        lastWeek: '[Last] dddd',
+        sameElse: 'dddd, MMMM Do YYYY'
+      });
     postObj.votes = 0;
     postObj.comments = [];
     allPosts.push(postObj);
