@@ -28,9 +28,9 @@
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort by <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
+              <li class="link" ng-click="updateFilter('-votes')">&nbsp;Votes</li>
+              <li class="link" ng-click="updateFilter('-date')">&nbsp;Date</li>
+              <li class="link" ng-click="updateFilter('title')">&nbsp;Title</li>
             </ul>
           </li>
         </ul>
@@ -41,7 +41,7 @@
   </nav>
 
   <div class="col-sm-12">
-    <div ng-repeat="post in posts | orderBy:'-votes' | filter:search">
+    <div ng-repeat="post in posts | orderBy:filter | filter:search">
       <div class="panel-body media post">
         <div class="row">
           <div class="col-sm-2">

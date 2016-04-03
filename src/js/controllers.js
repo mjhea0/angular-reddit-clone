@@ -3,6 +3,7 @@ app.controller('allPostsCtrl', ['$scope', 'postFactory',
 
   $scope.posts = postFactory.getAllPosts();
   $scope.newComment = {};
+  $scope.filter = '-votes';
 
   $scope.upVote = function(id, votes) {
     var post = postFactory.getPost(id)[0];
@@ -20,6 +21,11 @@ app.controller('allPostsCtrl', ['$scope', 'postFactory',
     var post = postFactory.getPost(id)[0];
     postFactory.addComment(post, comment);
     $scope.newComment = {};
+  };
+
+  $scope.updateFilter = function(filter) {
+    $scope.filter = filter;
+    console.log($scope.filter)
   };
 
 }]);
