@@ -28,4 +28,4 @@ Note:
 | Style the app.                                                                                    | x        |
 | A user can choose to sort ascending or descending                                                 | x        |
 | A user can favorite posts and view all favorites in a separate tab                                | x        |
-| A user can upload an image (no backend involved)                                                  |          |
+| A user can upload an image (no backend involved)                                                  | NO         |
