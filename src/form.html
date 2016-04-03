@@ -2,24 +2,28 @@
   <div class="col-md-4">
     <h1>Add new post</h1>
     <br><br>
-    <form ng-submit="postArticle()">
+    <form name="postForm" ng-submit="postArticle()" novalidate>
       <div class="form-group">
         <label for="title-input">Title</label>
-        <input ng-model='article.title' type="text" class="form-control" id="title-input" placeholder="Title">
+        <input ng-model='article.title' type="text" name="title" class="form-control ng-invalid" id="title-input" placeholder="Title" required>
+        <span class="help-inline" ng-show="submitted && postForm.title.$error.required">Required</span>
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-class="{true: 'error'}[submitted && postForm.author.$invalid]">
         <label for="author-input">Author</label>
-        <input ng-model="article.author" type="text" class="form-control" id="author-input" placeholder="Author">
+        <input ng-model="article.author" type="text" name="author" class="form-control" id="author-input" placeholder="Author" required>
+        <span class="help-inline" ng-show="submitted && postForm.author.$error.required">Required</span>
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-class="{true: 'error'}[submitted && postForm.img.$invalid]">
         <label for="pic-input">Picture Link (URL)</label>
-        <input ng-model="article.img" type="text" class="form-control" id="pic-input" placeholder="Picutre URL">
+        <input ng-model="article.img" type="text" name="img" class="form-control" id="pic-input" placeholder="Picutre URL" required>
+        <span class="help-inline" ng-show="submitted && postForm.img.$error.required">Required</span>
       </div>
-      <div class="form-group">
-        <label for="text-input">Description</label>
-        <input ng-model='article.desc' type="text" class="form-control" id="desc-input" placeholder="Description">
+      <div class="form-group" ng-class="{true: 'error'}[submitted && postForm.desc.$invalid]">
+        <label for="desc-input">Description</label>
+        <input ng-model='article.desc' type="text" name="desc" class="form-control" id="desc-input" placeholder="Description" required>
+        <span class="help-inline" ng-show="submitted && postForm.desc.$error.required">Required</span>
       </div>
-      <button type="submit" class="btn btn-success">Add Post</button>
+      <button type="submit" class="btn btn-success" ng-click="submitted=true">Add Post</button>
     </form>
   </div>
 </div>

@@ -23,8 +23,10 @@ app.controller('myFormCtrl', ['$scope', '$location', 'postFactory',
   $scope.article = {};
 
   $scope.postArticle = function() {
-    postFactory.addPost($scope.article);
-    $location.path('/');
+    if ($scope.postForm.$valid) {
+      postFactory.addPost($scope.article);
+      $location.path('/');
+    }
   };
 
 }]);
