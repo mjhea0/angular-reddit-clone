@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="col-md-4">
+    <h1>Add new post</h1>
+    <br><br>
+    <form ng-submit="postArticle()">
+      <div class="form-group">
+        <label for="title-input">Title</label>
+        <input ng-model='article.title' type="text" class="form-control" id="title-input" placeholder="Title">
+      </div>
+      <div class="form-group">
+        <label for="author-input">Author</label>
+        <input ng-model="article.author" type="text" class="form-control" id="author-input" placeholder="Author">
+      </div>
+      <div class="form-group">
+        <label for="pic-input">Picture Link (URL)</label>
+        <input ng-model="article.img" type="text" class="form-control" id="pic-input" placeholder="Picutre URL">
+      </div>
+      <div class="form-group">
+        <label for="text-input">Description</label>
+        <input ng-model='article.desc' type="text" class="form-control" id="desc-input" placeholder="Description">
+      </div>
+      <button type="submit" class="btn btn-success">Add Post</button>
+    </form>
+  </div>
+</div>

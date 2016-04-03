@@ -1,0 +1,30 @@
+/* add custom styles */
+
+body {
+  padding-top: 80px;
+}
+
+.post {
+  background-color: #f7f7f9;
+  margin-bottom: 10px;
+}
+
+.img-post {
+  max-width: 100px;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.black-font {
+  color: black;
+}
+
+.green-font {
+  color: #5cb85c;
+}
+
+.red-font {
+  color: #d9534f;
+}
