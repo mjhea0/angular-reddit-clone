@@ -28,3 +28,41 @@ body {
 .red-font {
   color: #d9534f;
 }
+
+@keyframes flip-in {
+  from {
+    opacity: 0;
+    transform: rotateX(90deg);
+    animation-timing-function: ease-in;
+  }
+  70% {
+    opacity: 0.5;
+    transform: rotateX(225deg)
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(360deg)};
+}
+
+@-webkit-keyframes flip-in {
+  from {
+    opacity: 0;
+    transform: rotateX(90deg);
+    animation-timing-function: ease-in;
+  }
+  70% {
+    opacity: 0.5;
+    transform: rotateX(225deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(360deg);
+  }
+}
+
+.flip-in, .flip-in.ng-enter {
+  backface-visibility: visible !important;
+  animation-name: flip-in;
+  animation-fill-mode: both;
+  animation-duration: 0.8s;
+}
