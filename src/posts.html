@@ -21,7 +21,7 @@
               <p>{{post.desc}}</p>
               <p>
                 <span class="glyphicon glyphicon-comment"></span>
-                <span class="link" ng-click="show=true">
+                <span class="link" ng-click="show=true;comment=false">
                   <span>{{post.comments.length}}</span>
                   <ng-pluralize count="post.comments.length" when="{
                     '0': 'comments',
@@ -30,8 +30,10 @@
                   </ng-pluralize>
                 </span>
                 <span>&nbsp;&verbar;&nbsp;</span>
-                <span class="glyphicon glyphicon-pencil"></span>
-                <span>Add Comment</span>
+                <span class="link" ng-click="show=false;comment=true">
+                  <span class="glyphicon glyphicon-pencil"></span>
+                  <span>Add Comment</span>
+                </span>
               </p>
             </div>
           </div>
@@ -58,6 +60,22 @@
           <ul ng-repeat="comment in post.comments">
             <li><p><em>{{comment.author}}</em>:&nbsp;{{comment.text}}</p></li>
           </ul>
+        </div>
+      </div>
+    </div>
+      <div ng-show="comment" class="panel-body media post">
+        <div class="row">
+          <div class="col-sm-9">
+            <form class="form-inline" ng-submit="addComment(post.id, newComment);comment=false">
+              <div class="form-group">
+                <input type="text" ng-model="newComment.author" class="form-control input-sm" placeholder="Author" required>
+              </div>
+              <div class="form-group">
+                <input type="text"  ng-model="newComment.text" class="form-control input-sm" placeholder="Text" required>
+              </div>
+              <button type="submit" class="btn btn-sm btn-success">Submit</button>
+              <button type="reset" class="btn btn-sm btn-danger" ng-click="comment=false">Cancel</button>
+            </form>
         </div>
       </div>
     </div>

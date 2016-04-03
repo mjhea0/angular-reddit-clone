@@ -86,6 +86,10 @@ app.factory('postFactory', function() {
     }
   };
 
+  posts.addComment = function(post, comment) {
+    allPosts[post.id-1].comments.push(comment);
+  };
+
   return posts;
 
 });

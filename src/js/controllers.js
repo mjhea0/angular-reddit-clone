@@ -2,6 +2,7 @@ app.controller('allPostsCtrl', ['$scope', 'postFactory',
   function($scope, postFactory) {
 
   $scope.posts = postFactory.getAllPosts();
+  $scope.newComment = {};
 
   $scope.upVote = function(id, votes) {
     var post = postFactory.getPost(id)[0];
@@ -13,6 +14,12 @@ app.controller('allPostsCtrl', ['$scope', 'postFactory',
     var post = postFactory.getPost(id)[0];
     postFactory.updateVotes(post, votes-1);
     postFactory.updateClass(post);
+  };
+
+  $scope.addComment = function(id, comment) {
+    var post = postFactory.getPost(id)[0];
+    postFactory.addComment(post, comment);
+    $scope.newComment = {};
   };
 
 }]);
