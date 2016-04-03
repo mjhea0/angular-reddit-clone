@@ -6,13 +6,13 @@ app.controller('allPostsCtrl', ['$scope', 'postFactory',
   $scope.upVote = function(id, votes) {
     var post = postFactory.getPost(id)[0];
     postFactory.updateVotes(post, votes+1);
-    console.log(postFactory.updateClass(post));
+    postFactory.updateClass(post);
   };
 
   $scope.downVote = function(id, votes) {
     var post = postFactory.getPost(id)[0];
     postFactory.updateVotes(post, votes-1);
-    console.log(postFactory.updateClass(post));
+    postFactory.updateClass(post);
   };
 
 }]);
