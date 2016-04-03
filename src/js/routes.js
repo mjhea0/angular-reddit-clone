@@ -6,5 +6,9 @@ app.config(['$routeProvider', function($routeProvider){
     .when('/add', {
       controller: 'myFormCtrl',
       templateUrl: 'form.html'
+    })
+    .when('/favs', {
+      controller: 'myFavCtrl',
+      templateUrl: 'fav.html'
     });
 }]);

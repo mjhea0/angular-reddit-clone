@@ -24,7 +24,8 @@ app.factory('postFactory', function() {
           author: 'Michael',
           text: 'Such a good post!'
         }
-      ]
+      ],
+      favorite: false
     },
     {
       id: 2,
@@ -42,7 +43,8 @@ app.factory('postFactory', function() {
       }),
       votes: 0,
       color: 'black',
-      comments: []
+      comments: [],
+      favorite: true
     },
     {
       id: 3,
@@ -60,7 +62,8 @@ app.factory('postFactory', function() {
       }),
       votes: 0,
       color: 'black',
-      comments: []
+      comments: [],
+      favorite: false
     }
   ];
 
@@ -91,6 +94,7 @@ app.factory('postFactory', function() {
       });
     postObj.votes = 0;
     postObj.comments = [];
+    postObj.favorite = false;
     allPosts.push(postObj);
   };
 
@@ -106,6 +110,14 @@ app.factory('postFactory', function() {
 
   posts.addComment = function(post, comment) {
     allPosts[post.id-1].comments.push(comment);
+  };
+
+  posts.toggleFavorite = function(post) {
+    if(allPosts[post.id-1].favorite) {
+     allPosts[post.id-1].favorite = false;
+    } else {
+      allPosts[post.id-1].favorite = true;
+    }
   };
 
   return posts;

@@ -1,0 +1,83 @@
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/#/">Reddit Clone</a>
+    </div>
+  </div>
+  <!-- /.container -->
+</nav>
+
+<div class="col-sm-12">
+  <div class="text-center">
+    <h1>Favorite Posts</h1><hr><br>
+  </div>
+  <div ng-repeat="post in posts">
+    <div class="panel-body media post flip-in" ng-show="post.favorite">
+      <div class="row">
+        <div class="col-sm-2">
+          <img class="img-post" src="{{post.img}}" alt="{{post.title}}" title="{{post.title}}">
+        </div>
+        <div class="col-sm-7">
+          <div class="row">
+            <h4 class="media-heading">
+              <span>{{post.title}}</span>
+            </h4>
+          </div>
+          <div class="row">
+            <small>By&nbsp;<em>{{post.author}}</em></small>
+            <br><br>
+            <p>{{post.desc}}</p>
+            <p>
+              <span class="glyphicon glyphicon-comment"></span>
+              <span class="link" ng-click="show=true;comment=false">
+                <span>{{post.comments.length}}</span>
+                <ng-pluralize count="post.comments.length" when="{
+                  '0': 'comments',
+                  '1': 'comment',
+                  'other': 'comments'}">
+                </ng-pluralize>
+              </span>
+              <span>&nbsp;&verbar;&nbsp;</span>
+              <span class="link" ng-click="unFavoritePost(post.id)">
+                <span class="glyphicon glyphicon-heart"></span>
+                <span>Unfavorite</span>
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <h4><small>
+            <span class="glyphicon glyphicon-calendar"></span>
+            &nbsp;{{post.date}}
+          </small></h4>
+        </div>
+      </div>
+    </div>
+    <div ng-show="show" class="panel-body media post">
+      <div class="row">
+        <div class="col-sm-9">
+          <p ng-show="post.comments.length===0">No Comments!</p>
+          <p ng-show="post.comments.length>0">All Comments:</p>
+        </div>
+        <div class="col-sm-3">
+          <button type="submit" class="btn btn-xs btn-success" ng-click="show=false">Hide</button>
+        </div>
+      </div>
+      <div class="row" ng-show="post.comments.length>0">
+        <div class="col-sm-9">
+          <ul ng-repeat="comment in post.comments">
+            <li><p><em>{{comment.author}}</em>:&nbsp;{{comment.text}}</p></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

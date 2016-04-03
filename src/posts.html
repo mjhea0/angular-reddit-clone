@@ -21,6 +21,10 @@
               <span class="glyphicon glyphicon-plus"></span>&nbsp;New Post</a>
           </li>
           <li>
+            <a href="/#/favs">
+              <span class="glyphicon glyphicon-star"></span>&nbsp;Favorites</a>
+          </li>
+          <li>
           <form class="navbar-form" role="search">
             <input type="text" class="form-control" placeholder="Search" ng-model="search">
           </form>
@@ -43,6 +47,9 @@
   </nav>
 
   <div class="col-sm-12">
+    <div class="text-center">
+      <h1>All Posts</h1><hr><br>
+    </div>
     <div ng-repeat="post in posts | orderBy:filter | filter:search">
       <div class="panel-body media post flip-in">
         <div class="row">
@@ -76,6 +83,13 @@
                 <span class="link" ng-click="show=false;comment=true">
                   <span class="glyphicon glyphicon-pencil"></span>
                   <span>Add Comment</span>
+                </span>
+                <span ng-show="!post.favorite">
+                  <span>&nbsp;&verbar;&nbsp;</span>
+                  <span class="link" ng-click="favoritePost(post.id)">
+                    <span class="glyphicon glyphicon-heart"></span>
+                    <span>Favorite</span>
+                  </span>
                 </span>
               </p>
             </div>

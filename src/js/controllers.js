@@ -43,6 +43,11 @@ app.controller('allPostsCtrl', ['$scope', 'postFactory',
     }
   };
 
+  $scope.favoritePost = function(id) {
+    var post = postFactory.getPost(id)[0];
+    postFactory.toggleFavorite(post);
+  };
+
 }]);
 
 app.controller('myFormCtrl', ['$scope', '$location', 'postFactory',
@@ -55,6 +60,18 @@ app.controller('myFormCtrl', ['$scope', '$location', 'postFactory',
       postFactory.addPost($scope.article);
       $location.path('/');
     }
+  };
+
+}]);
+
+app.controller('myFavCtrl', ['$scope', 'postFactory',
+  function($scope, postFactory) {
+
+  $scope.posts = postFactory.getAllPosts();
+
+  $scope.unFavoritePost = function(id) {
+    var post = postFactory.getPost(id)[0];
+    postFactory.toggleFavorite(post);
   };
 
 }]);
