@@ -9,7 +9,7 @@ app.factory('postFactory', function() {
       author: 'ClintonFan4Lyfe',
       img: 'http://i.imgur.com/kETTPXr.jpg',
       desc: 'Bicycle rights meggings umami intelligentsia wolf hoodie. Before they sold out leggings single-origin coffee, kale chips chicharrones brooklyn tote bag next level photo booth kinfolk. Raw denim irony humblebrag, schlitz brunch williamsburg pitchfork.',
-      date: moment().day(-1).calendar(null, {
+      date: moment('2016 03 25', 'YYYY MM DD').calendar(null, {
         sameDay: '[Today]',
         nextDay: '[Tomorrow]',
         nextWeek: 'dddd',
@@ -50,7 +50,7 @@ app.factory('postFactory', function() {
       author: 'HashtagMemesCatsBacon',
       img: 'http://i.imgur.com/KRxgsMQ.jpg',
       desc: 'Sustainable single-origin coffee truffaut iPhone selvage. 90\'s chia actually ennui, vegan salvia bespoke you probably haven\'t heard of them readymade selfies williamsburg ramps VHS synth.',
-      date: moment(new Date()).day(1).calendar(null, {
+      date: moment('2016 03 10', 'YYYY MM DD').calendar(null, {
         sameDay: '[Today]',
         nextDay: '[Tomorrow]',
         nextWeek: 'dddd',

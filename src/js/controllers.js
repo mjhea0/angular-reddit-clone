@@ -23,9 +23,24 @@ app.controller('allPostsCtrl', ['$scope', 'postFactory',
     $scope.newComment = {};
   };
 
-  $scope.updateFilter = function(filter) {
-    $scope.filter = filter;
-    console.log($scope.filter)
+  $scope.updateFilter = function(order, filter) {
+    var sign = '';
+    if(order === 'descending') {
+      sign = '-';
+    } else {
+      sign = '+';
+    }
+    $scope.filter = sign + filter;
+  };
+
+  $scope.reverseFilter = function() {
+    var filterArray = $scope.filter.split('');
+    var sign = filterArray.splice(0, 1);
+    if(sign[0] === '+') {
+      $scope.filter = '-' + filterArray.join('');
+    } else {
+      $scope.filter = '+' + filterArray.join('');
+    }
   };
 
 }]);

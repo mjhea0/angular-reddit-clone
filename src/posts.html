@@ -28,13 +28,12 @@
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort by <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li class="link" ng-click="updateFilter('-votes')">&nbsp;Votes (high to low)</li>
-              <li class="link" ng-click="updateFilter('votes')">&nbsp;Votes (low to high)</li>
-              <li class="link" ng-click="updateFilter('-date')">&nbsp;Date (new to old)</li>
-              <li class="link" ng-click="updateFilter('date')">&nbsp;Date (old to new)</li>
-              <li class="link" ng-click="updateFilter('title')">&nbsp;Title (A to Z)</li>
-              <li class="link" ng-click="updateFilter('-title')">&nbsp;Title (Z to A)</li>
+              <li class="link" ng-click="updateFilter('descending', 'votes')">&nbsp;Votes</li>
+              <li class="link" ng-click="updateFilter('descending', 'date')">&nbsp;Date</li>
+              <li class="link" ng-click="updateFilter('ascending', 'title')">&nbsp;Title</li>
             </ul>
+            <li>
+            <a class="link" ng-click="reverseFilter()"><span class="glyphicon glyphicon-arrow-up"></span><span class="glyphicon glyphicon-arrow-down"></span></a>
           </li>
         </ul>
       </div>
