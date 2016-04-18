@@ -1,3 +1,10 @@
-var app = angular.module('redditClone',
-  ['ngRoute', 'angularMoment', 'ngAnimate']
-);
+(function () {
+
+  angular
+    .module('redditClone', [
+      'ngRoute',
+      'angularMoment',
+      'ngAnimate'
+    ]);
+
+})();
